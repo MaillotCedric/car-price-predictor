@@ -21,3 +21,48 @@ L'application réalisée devra utiliser en technologie front un framework js mod
 ## Dataset
 
 [Car Price Prediction Challenge](https://www.kaggle.com/datasets/deepcontractor/car-price-prediction-challenge)
+
+## Installation
+
+Install the PostgreSQL database connection package
+
+- Windows :
+
+    pip install psycopg2
+
+- Linux or Mac OS :
+
+    pip install psycopg2-binary
+
+Create database :
+
+- Database settings :
+
+    - Name : `<database name>`
+    - User : `<database user name> (default : postgres)`
+    - Password : `<database password>`
+
+Inside project folder, create a file called `.env``
+
+Update project/settings.py (source) :
+
+``` python
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.environ.get("DB_NAME"),
+        "USER": os.environ.get("DB_USER_NAME"),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+}
+```
+
+Update project/.env :
+
+```
+DB_NAME=<database name>
+DB_USER_NAME=<database user name> (default : postgres)
+DB_PASSWORD=<database password>
+```
