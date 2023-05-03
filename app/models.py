@@ -40,6 +40,9 @@ class IntervalleProduction(models.Model):
     class Meta:
         managed = True
         db_table = 'intervalle_production'
+        constraints = [
+            models.UniqueConstraint(fields=["debut"], name='unique date de début')
+        ]
 
     def __str__(self):
         return f"{self.id_intervalle_production} : {self.debut}"
@@ -63,6 +66,9 @@ class Modele(models.Model):
     class Meta:
         managed = True
         db_table = 'modele'
+
+    def __str__(self):
+        return f"{self.id_modele} : {self.nom_modele}"
 
 class RoueMotrice(models.Model):
     id_roue_motrice = models.AutoField(primary_key=True)
@@ -107,3 +113,14 @@ class Voiture(models.Model):
     class Meta:
         managed = True
         db_table = 'voiture'
+
+    def __str__(self):
+        return f"{self.id_voiture} / {self.id_marque}"
+
+class DetailsVoiture(models.Model):
+    id_voiture = models.ForeignKey(Voiture, db_column='id_voiture', on_delete=models.CASCADE)
+    id_modele = models.ForeignKey(Modele, db_column='id_modele', on_delete=models.CASCADE)
+
+    class Meta:
+        managed = True
+        db_table = 'details_voiture'
