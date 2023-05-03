@@ -1,10 +1,11 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 from app.mixins import MultipleSerializerMixin, EnablePartialUpdateMixin
-from app.serializers import UsersListeSerializer, UsersDetailsSerializer
+from app.serializers import UsersListeSerializer, UsersDetailsSerializer, CarburantsListeSerializer, CategoriesListeSerializer, CouleursListeSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, AllowAny
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.contrib.auth.models import User
+from app.models import Carburant, Categorie, Couleur
 
 class ReadUpdateModelViewSet(ModelViewSet):
     http_method_names = ["get", "put", "patch"]
@@ -46,3 +47,27 @@ class UsersAPIViewset(MultipleSerializerMixin, ReadUpdateModelViewSet):
         self.get_object().activate()
 
         return Response()
+
+class CarburantsAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = CarburantsListeSerializer
+
+    def get_queryset(self):
+        queryset = Carburant.objects.all()
+
+        return queryset
+
+class CategoriesAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = CategoriesListeSerializer
+
+    def get_queryset(self):
+        queryset = Categorie.objects.all()
+
+        return queryset
+
+class CouleursAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = CouleursListeSerializer
+
+    def get_queryset(self):
+        queryset = Couleur.objects.all()
+
+        return queryset
