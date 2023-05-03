@@ -66,3 +66,29 @@ DB_NAME=<database name>
 DB_USER_NAME=<database user name> (default : postgres)
 DB_PASSWORD=<database password>
 ```
+
+Make the first migrations :
+
+- Windows :
+
+    `py manage.py makemigrations`
+
+    `py manage.py migrate`
+
+- Linux or Mac OS :
+
+    `python3 manage.py migrate or python manage.py migrate`
+
+    `python3 manage.py makemigrations or python manage.py makemigrations`
+
+    `python3 manage.py migrate or python manage.py migrate`
+
+Create superuser :
+
+- Windows :
+
+    `py manage.py init_local_dev`
+
+- Linux or Mac OS :
+
+    `python3 manage.py init_local_dev or python manage.py init_local_dev`
