@@ -1,11 +1,11 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 from app.mixins import MultipleSerializerMixin, EnablePartialUpdateMixin
-from app.serializers import UsersListeSerializer, UsersDetailsSerializer, CarburantsListeSerializer, CategoriesListeSerializer, CouleursListeSerializer
+from app.serializers import UsersListeSerializer, UsersDetailsSerializer,CarburantsListeSerializer, CategoriesListeSerializer, CouleursListeSerializer, IntervallesProductionListeSerializer, MarquesListeSerializer, ModelesListeSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, AllowAny
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from app.models import Carburant, Categorie, Couleur
+from app.models import Carburant, Categorie, Couleur, IntervalleProduction, Marque, Modele
 
 class ReadUpdateModelViewSet(ModelViewSet):
     http_method_names = ["get", "put", "patch"]
@@ -69,5 +69,29 @@ class CouleursAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
 
     def get_queryset(self):
         queryset = Couleur.objects.all()
+
+        return queryset
+
+class IntervallesProductionAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = IntervallesProductionListeSerializer
+
+    def get_queryset(self):
+        queryset = IntervalleProduction.objects.all()
+
+        return queryset
+
+class MarquesAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = MarquesListeSerializer
+
+    def get_queryset(self):
+        queryset = Marque.objects.all()
+
+        return queryset
+
+class ModelesAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = ModelesListeSerializer
+
+    def get_queryset(self):
+        queryset = Modele.objects.all()
 
         return queryset

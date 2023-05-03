@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from app.viewsets import UsersAPIViewset, CarburantsAPIViewset, CategoriesAPIViewset, CouleursAPIViewset
+from app.viewsets import UsersAPIViewset, CarburantsAPIViewset, CategoriesAPIViewset, CouleursAPIViewset, IntervallesProductionAPIViewset, MarquesAPIViewset, ModelesAPIViewset
 # from app.views import login_
 
 router = routers.SimpleRouter()
@@ -26,6 +26,9 @@ router.register("users", UsersAPIViewset, basename="users")
 router.register("carburants", CarburantsAPIViewset, basename="carburants")
 router.register("categories", CategoriesAPIViewset, basename="categories")
 router.register("couleurs", CouleursAPIViewset, basename="couleurs")
+router.register("intervalles_production", IntervallesProductionAPIViewset, basename="intervalles_production")
+router.register("marques", MarquesAPIViewset, basename="marques")
+router.register("modeles", ModelesAPIViewset, basename="modeles")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
