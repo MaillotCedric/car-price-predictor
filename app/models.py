@@ -70,6 +70,17 @@ class Modele(models.Model):
     def __str__(self):
         return f"{self.id_modele} : {self.nom_modele}"
 
+class Ouverture(models.Model):
+    id_ouverture = models.AutoField(primary_key=True)
+    type_ouverture = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'ouverture'
+
+    def __str__(self):
+        return f"{self.id_ouverture} : {self.type_ouverture}"
+
 class RoueMotrice(models.Model):
     id_roue_motrice = models.AutoField(primary_key=True)
     type_roue_motrice = models.CharField(max_length=50, blank=True, null=True)
@@ -100,7 +111,6 @@ class Voiture(models.Model):
     cylindree = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
     nombre_cylindres = models.IntegerField(blank=True, null=True)
     kilometrage = models.IntegerField(blank=True, null=True)
-    nombre_portes = models.IntegerField(blank=True, null=True)
     nombre_airbags = models.IntegerField(blank=True, null=True)
     id_intervalle_production = models.ForeignKey(IntervalleProduction, db_column='id_intervalle_production', on_delete=models.CASCADE)
     id_couleur = models.ForeignKey(Couleur, db_column='id_couleur', on_delete=models.CASCADE)
@@ -109,6 +119,7 @@ class Voiture(models.Model):
     id_carburant = models.ForeignKey(Carburant, db_column='id_carburant', on_delete=models.CASCADE)
     id_categorie = models.ForeignKey(Categorie, db_column='id_categorie', on_delete=models.CASCADE)
     id_marque = models.ForeignKey(Marque, db_column='id_marque', on_delete=models.CASCADE)
+    id_ouverture = models.ForeignKey(Ouverture, db_column='id_ouverture', on_delete=models.CASCADE)
 
     class Meta:
         managed = True
