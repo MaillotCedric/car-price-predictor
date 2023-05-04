@@ -24,6 +24,70 @@ L'application réalisée devra utiliser en technologie front un framework js mod
 
 ## Installation
 
+Install a virtual environment :
+
+- Windows :
+
+    `py -m venv .env`
+
+- Linux or Mac OS :
+
+    `python3 -m venv .env or python -m venv .env`
+
+Activate the virtual environment :
+
+- Windows :
+
+    `.env\Scripts\activate`
+
+- Linux or Mac OS :
+
+    `source .env/bin/activate`
+
+Install packages (Django, ...) :
+
+    `pip install -r requirements.txt`
+
+- Hide the key to the castle :
+
+    - Create the safe :
+
+        Inside project folder, create a file called `.env`
+
+    - Generate the key :
+
+        a. Run the following command in the terminal of your Django project
+
+        . Windows :
+
+        `py manage.py shell`
+
+        . Linux or Mac OS :
+
+        `python3 manage.py shell or python manage.py shell`
+
+        b. Import the key generator function
+
+        Run the following command and hit Enter :
+
+        `from django.core.management.utils import get_random_secret_key`
+
+        c. Generate a random key
+
+        On the next line we can now use the function to generate the secret key
+
+        `print(get_random_secret_key())`
+
+    - Hide the key
+
+        Copy the generated key
+
+        In the `.env` file, declare a SECRET_KEY variable as follows
+
+        `SECRET_KEY=<generated key>`
+
+    *The castle is well-protected now :)*
+
 Install the PostgreSQL database connection package
 
 - Windows :
@@ -41,8 +105,6 @@ Create database :
     - Name : `<database name>`
     - User : `<database user name> (default : postgres)`
     - Password : `<database password>`
-
-Inside project folder, create a file called `.env``
 
 Update project/settings.py (source) :
 
