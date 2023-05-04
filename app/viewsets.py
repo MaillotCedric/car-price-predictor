@@ -1,11 +1,11 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 from app.mixins import MultipleSerializerMixin, EnablePartialUpdateMixin
-from app.serializers import UsersListeSerializer, UsersDetailsSerializer,CarburantsListeSerializer, CategoriesListeSerializer, CouleursListeSerializer, IntervallesProductionListeSerializer, MarquesListeSerializer, ModelesListeSerializer
+from app.serializers import UsersListeSerializer, UsersDetailsSerializer,CarburantsListeSerializer, CategoriesListeSerializer, CouleursListeSerializer, IntervallesProductionListeSerializer, MarquesListeSerializer, ModelesListeSerializer, OuverturesListeSerializer, RouesMotricesListeSerializer, TransmissionsListeSerializer, VoituresListeSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, AllowAny
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from app.models import Carburant, Categorie, Couleur, IntervalleProduction, Marque, Modele
+from app.models import Carburant, Categorie, Couleur, IntervalleProduction, Marque, Modele, Ouverture, RoueMotrice, Transmission, Voiture
 
 class ReadUpdateModelViewSet(ModelViewSet):
     http_method_names = ["get", "put", "patch"]
@@ -97,5 +97,37 @@ class ModelesAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
 
         if id_marque is not None:
             queryset = queryset.filter(id_marque = id_marque)
+
+        return queryset
+
+class OuverturesAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = OuverturesListeSerializer
+
+    def get_queryset(self):
+        queryset = Ouverture.objects.all()
+
+        return queryset
+
+class RouesMotricesAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = RouesMotricesListeSerializer
+
+    def get_queryset(self):
+        queryset = RoueMotrice.objects.all()
+
+        return queryset
+
+class TransmissionsAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = TransmissionsListeSerializer
+
+    def get_queryset(self):
+        queryset = Transmission.objects.all()
+
+        return queryset
+
+class VoituresAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
+    serializer_class = VoituresListeSerializer
+
+    def get_queryset(self):
+        queryset = Voiture.objects.all()
 
         return queryset

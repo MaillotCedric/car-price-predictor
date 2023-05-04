@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from django.contrib.auth.models import User
-from app.models import Carburant, Categorie, Couleur, IntervalleProduction, Marque, Modele
+from app.models import Carburant, Categorie, Couleur, IntervalleProduction, Marque, Modele, Ouverture, RoueMotrice, Transmission, Voiture
 
 class UsersListeSerializer(ModelSerializer):
     class Meta:
@@ -40,4 +40,24 @@ class MarquesListeSerializer(ModelSerializer):
 class ModelesListeSerializer(ModelSerializer):
     class Meta:
         model = Modele
+        fields = "__all__"
+
+class OuverturesListeSerializer(ModelSerializer):
+    class Meta:
+        model = Ouverture
+        fields = "__all__"
+
+class RouesMotricesListeSerializer(ModelSerializer):
+    class Meta:
+        model = RoueMotrice
+        fields = "__all__"
+
+class TransmissionsListeSerializer(ModelSerializer):
+    class Meta:
+        model = Transmission
+        fields = "__all__"
+
+class VoituresListeSerializer(ModelSerializer):
+    class Meta:
+        model = Voiture
         fields = "__all__"
