@@ -92,3 +92,19 @@ Create superuser :
 - Linux or Mac OS :
 
     `python3 manage.py init_local_dev or python manage.py init_local_dev`
+
+## API REST
+
+| URI                                | Autorisation | Méthode | Données | Description                                                  |
+| ---------------------------------- | ------------ | ------- | ------- | ------------------------------------------------------------ |
+| /api/carburants/                   | No Auth      | GET     | None    | Liste des types de carburant                                 |
+| /api/categories/                   | No Auth      | GET     | None    | Liste des catégories de véhicule                             |
+| /api/couleurs/                     | No Auth      | GET     | None    | Liste de couleurs                                            |
+| /api/intervalles_production/       | No Auth      | GET     | None    | Liste des intervalles de production (Les années de productions d'un véhicule ont été regroupées par tranches de 10 ans) |
+| /api/ marques/                     | No Auth      | GET     | None    | Liste des marques de voiture                                 |
+| /api/modeles/                      | No Auth      | GET     | None    | Liste des modèles de voiture                                 |
+| /api/modeles?id_marque=\<id_marque\> | No Auth      | GET     | None    | Liste des modèles existants pour une marque de voiture       |
+| /api/ouvertures/                   | No Auth      | GET     | None    | Liste des types d'ouvertures (2-3 portes, ...)               |
+| /api/roues_motrices/               | No Auth      | GET     | None    | Liste des types de traction d'un véhicule                    |
+| /api/transmissions/                | No Auth      | GET     | None    | Liste des types de transmission d'un véhicule                |
+| /api/voitures/                     | No Auth      | GET     | None    | Liste des voitures sur lesquelles on a effectué une prédiction de prix |
