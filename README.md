@@ -100,7 +100,7 @@ Create superuser :
 | /api/carburants/                   | No Auth      | GET     | None    | Liste des types de carburant                                 |
 | /api/categories/                   | No Auth      | GET     | None    | Liste des catégories de véhicule                             |
 | /api/couleurs/                     | No Auth      | GET     | None    | Liste de couleurs                                            |
-| /api/intervalles_production/       | No Auth      | GET     | None    | Liste des intervalles de production (Les années de productions d'un véhicule ont été regroupées par tranches de 10 ans) |
+| /api/intervalles_production/       | No Auth      | GET     | None    | Liste des intervalles de production (Les années de production d'un véhicule ont été regroupées par tranches de 10 ans) |
 | /api/ marques/                     | No Auth      | GET     | None    | Liste des marques de voiture                                 |
 | /api/modeles/                      | No Auth      | GET     | None    | Liste des modèles de voiture                                 |
 | /api/modeles?id_marque=\<id_marque\> | No Auth      | GET     | None    | Liste des modèles existants pour une marque de voiture       |
