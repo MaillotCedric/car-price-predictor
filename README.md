@@ -155,6 +155,14 @@ Create superuser :
 
     `python3 manage.py init_local_dev or python manage.py init_local_dev`
 
+## Modèle conceptuel de données
+
+![Modèle conceptuel de données](/doc/Modele%20conceptuel%20de%20donn%C3%A9es.PNG "Modèle conceptuel de données")
+
+## Modèle physique de données
+
+![Modèle physique de données](/doc/Mod%C3%A8le%20physique%20de%20donn%C3%A9es.PNG "Modèle physique de donnéess")
+
 ## API REST
 
 | URI                                | Autorisation | Méthode | Données | Description                                                  |
