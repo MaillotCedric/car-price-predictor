@@ -93,5 +93,9 @@ class ModelesAPIViewset(MultipleSerializerMixin, ReadOnlyModelViewSet):
 
     def get_queryset(self):
         queryset = Modele.objects.all()
+        id_marque = self.request.GET.get("id_marque")
+
+        if id_marque is not None:
+            queryset = queryset.filter(id_marque = id_marque)
 
         return queryset
