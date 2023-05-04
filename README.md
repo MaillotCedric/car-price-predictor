@@ -161,7 +161,7 @@ Create superuser :
 
 ## Modèle physique de données
 
-![Modèle physique de données](/doc/Mod%C3%A8le%20physique%20de%20donn%C3%A9es.PNG "Modèle physique de donnéess")
+![Modèle physique de données](/doc/Mod%C3%A8le%20physique%20de%20donn%C3%A9es.PNG "Modèle physique de données")
 
 ## API REST
 
