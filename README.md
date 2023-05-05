@@ -178,3 +178,4 @@ Create superuser :
 | /api/roues_motrices/               | No Auth      | GET     | None    | Liste des types de traction d'un véhicule                    |
 | /api/transmissions/                | No Auth      | GET     | None    | Liste des types de transmission d'un véhicule                |
 | /api/voitures/                     | No Auth      | GET     | None    | Liste des voitures sur lesquelles on a effectué une prédiction de prix |
+| /api/predire/ | No Auth | POST | [mileage, model, ...] | Renvoie une prédiction (prix estimé) en récupérant les données du formulaire |
