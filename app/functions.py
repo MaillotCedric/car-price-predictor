@@ -1,14 +1,8 @@
 import os
 import joblib
-from django.conf import settings
+from django.conf import Settings
 
-from sklearn.pipeline import Pipeline
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from category_encoders import TargetEncoder
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from rest_framework import serializers
-from sklearn.ensemble import RandomForestRegressor
 
 import pandas as pd
 
