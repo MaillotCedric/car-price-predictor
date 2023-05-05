@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 @login_required(login_url="login")
 def home(request):
@@ -28,3 +30,13 @@ def logout_(request):
     messages.success(request, "Logged out")
 
     return redirect("login")
+
+class PredireAPIView(APIView):
+    def get(self, *args, **kwargs):
+        # la fonction permettant de faire une prédiction sera implémentée ou appelée ici
+        # pour l'instant l'API renvoie une valeur fictive
+        donnees = {
+            "prix": 2345
+        }
+
+        return Response(donnees)
