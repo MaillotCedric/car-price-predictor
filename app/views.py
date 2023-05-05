@@ -32,11 +32,12 @@ def logout_(request):
     return redirect("login")
 
 class PredireAPIView(APIView):
-    def get(self, *args, **kwargs):
+    def post(self, *args, **kwargs):
+        donnees_recues = self.request.data
         # la fonction permettant de faire une prédiction sera implémentée ou appelée ici
         # pour l'instant l'API renvoie une valeur fictive
-        donnees = {
+        donnees_envoyees = {
             "prix": 2345
         }
 
-        return Response(donnees)
+        return Response(donnees_envoyees)
