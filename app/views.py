@@ -48,6 +48,7 @@ def logout_(request):
 class PredireAPIView(APIView):
     def post(self, *args, **kwargs):
         model_path = os.path.join(settings.BASE_DIR, 'app', 'models_ai')
+        print(model_path)
 
         num_model = self.request.data.get('num_model')
         

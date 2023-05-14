@@ -1,6 +1,6 @@
 import os
 import joblib
-from django.conf import Settings
+from django.conf import settings
 
 from rest_framework import serializers
 
